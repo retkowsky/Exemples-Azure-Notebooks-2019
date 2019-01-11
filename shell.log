@@ -1,0 +1,219 @@
+2017-08-29 20:24:18 - // include directory, this will be replaced by the kernel
+2017-08-29 20:24:18 - #I "/home/nbcommon/IfSharp/bin"
+2017-08-29 20:24:18 - // load base dlls
+2017-08-29 20:24:18 - #r "IfSharp.Kernel.dll"
+2017-08-29 20:24:18 - #r "NetMQ.dll"
+2017-08-29 20:24:18 - // open the global functions and methods
+2017-08-29 20:24:18 - open IfSharp.Kernel
+2017-08-29 20:24:18 - open IfSharp.Kernel.Globals
+2017-08-29 20:24:21 - F# Interactive for F# 4.1
+2017-08-29 20:24:21 - Freely distributed under the Apache 2.0 Open Source License
+2017-08-29 20:24:21 - For help type #help;;
+2017-08-29 20:24:21 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2017-08-29 20:24:21 -   seq []
+2017-08-29 20:24:21 - --> Added '/home/nbcommon/IfSharp/bin' to library include path
+2017-08-29 20:24:21 - --> Referenced '/home/nbcommon/IfSharp/bin/IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2017-08-29 20:24:21 - --> Referenced '/home/nbcommon/IfSharp/bin/NetMQ.dll' (file may be locked by F# Interactive process)
+2017-08-29 20:24:21 - Unknown content type on shell. msg_type is `comm_info_request`
+2018-12-24 13:20:42 - Microsoft (R) F# Interactive version 10.1.0 for F# 4.1
+2018-12-24 13:20:42 - Copyright (c) Microsoft Corporation. All Rights Reserved.
+2018-12-24 13:20:42 - For help type #help;;
+2018-12-24 13:20:42 - > val it :
+2018-12-24 13:20:42 -   ResizeArray<System.Type *
+2018-12-24 13:20:42 -               (obj ->
+2018-12-24 13:20:42 -                  seq<string *
+2018-12-24 13:20:42 -                      string> *
+2018-12-24 13:20:42 -                  string)>
+2018-12-24 13:20:42 - = seq []
+2018-12-24 13:20:42 - --> Added '/home/nbuser/IfSharp/bin' to library include path
+2018-12-24 13:20:42 - --> Referenced '/home/nbuser/IfSharp/bin/IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-12-24 13:20:42 - --> Referenced '/home/nbuser/IfSharp/bin/NetMQ.dll' (file may be locked by F# Interactive process)
+2018-12-24 13:20:42 - Reporting 0 opened comms
+2018-12-24 13:20:42 - (12/4 + 5 + 7) * 4 - 18
+2018-12-24 13:20:42 - let sampleNumbers = [ 0 .. 15 ]
+2018-12-24 13:20:42 - sampleNumbers
+2018-12-24 13:20:43 - /// A function to compute a sample curve
+2018-12-24 13:20:43 - let sampleFunction (x:int) = 
+2018-12-24 13:20:43 -     2*x*x - 5*x + 3
+2018-12-24 13:20:43 - sampleFunction (7 + 4)
+2018-12-24 13:20:43 - sampleFunction (int 3.14 + int 2.79)
+2018-12-24 13:20:43 - if 98.0 < 100.0 then 10 else 20
+2018-12-24 13:20:43 - not false && (true || false)
+2018-12-24 13:20:43 - let helloWorld = "Hello" + " " + "world"
+2018-12-24 13:20:43 - helloWorld
+2018-12-24 13:20:43 - (1, "fred", 3.1415)
+2018-12-24 13:20:44 - open System
+2018-12-24 13:20:44 - let fridaysList = 
+2018-12-24 13:20:44 -     [ for month in 1 .. 6 do
+2018-12-24 13:20:44 -         for day in 1 .. DateTime.DaysInMonth(2017, month) do 
+2018-12-24 13:20:44 -           let date = DateTime(2017, month, day)
+2018-12-24 13:20:44 -           if date.DayOfWeek = DayOfWeek.Friday then 
+2018-12-24 13:20:44 -             yield date.ToShortDateString() ]
+2018-12-24 13:20:44 -               
+2018-12-24 13:20:44 - fridaysList              
+2018-12-24 13:20:44 - let lowNumbers = [| 1 .. 200 |]
+2018-12-24 13:20:44 - lowNumbers
+2018-12-24 13:20:44 - sampleNumbers 
+2018-12-24 13:20:44 - |> List.map (fun x -> x*x) 
+2018-12-24 13:20:44 - let sumOfSelectedSquares = 
+2018-12-24 13:20:44 -     sampleNumbers
+2018-12-24 13:20:44 -     |> List.map (fun x -> x*x) 
+2018-12-24 13:20:44 -     |> List.filter (fun x -> x % 3 = 0)
+2018-12-24 13:20:44 -     |> List.sumBy (fun x -> x * x)
+2018-12-24 13:20:44 -     
+2018-12-24 13:20:44 - sumOfSelectedSquares    
+2018-12-24 13:20:44 - lowNumbers.[0 .. 50]
+2018-12-24 13:20:45 - let rnd = System.Random()
+2018-12-24 13:20:45 - let rec randomWalk x =
+2018-12-24 13:20:45 -     seq { yield x
+2018-12-24 13:20:45 -           yield! randomWalk (x + rnd.NextDouble() - 0.5) }
+2018-12-24 13:20:45 - let firstValuesOfRandomWalk = 
+2018-12-24 13:20:45 -     randomWalk 5.0 
+2018-12-24 13:20:45 -     |> Seq.truncate 20
+2018-12-24 13:20:45 -     |> Seq.toList
+2018-12-24 13:20:45 -     
+2018-12-24 13:20:45 - firstValuesOfRandomWalk
+2018-12-24 13:20:45 - (12/4 + 5 + 7) * 4 - 18
+2018-12-24 13:20:45 - let sampleNumbers = [ 0 .. 15 ]
+2018-12-24 13:20:45 - sampleNumbers
+2018-12-24 13:20:45 - /// A function to compute a sample curve
+2018-12-24 13:20:45 - let sampleFunction (x:int) = 
+2018-12-24 13:20:45 -     2*x*x - 5*x + 3
+2018-12-24 13:20:45 - sampleFunction (7 + 4)
+2018-12-24 13:20:45 - sampleFunction (int 3.14 + int 2.79)
+2018-12-24 13:20:45 - if 98.0 < 100.0 then 10 else 20
+2018-12-24 13:20:46 - not false && (true || false)
+2018-12-24 13:20:46 - let helloWorld = "Hello" + " " + "world"
+2018-12-24 13:20:46 - helloWorld
+2018-12-24 13:20:46 - (1, "fred", 3.1415)
+2018-12-24 13:20:46 - open System
+2018-12-24 13:20:46 - let fridaysList = 
+2018-12-24 13:20:46 -     [ for month in 1 .. 6 do
+2018-12-24 13:20:46 -         for day in 1 .. DateTime.DaysInMonth(2017, month) do 
+2018-12-24 13:20:46 -           let date = DateTime(2017, month, day)
+2018-12-24 13:20:46 -           if date.DayOfWeek = DayOfWeek.Friday then 
+2018-12-24 13:20:46 -             yield date.ToShortDateString() ]
+2018-12-24 13:20:46 -               
+2018-12-24 13:20:46 - fridaysList              
+2018-12-24 13:20:46 - let lowNumbers = [| 1 .. 200 |]
+2018-12-24 13:20:46 - lowNumbers
+2018-12-24 13:20:46 - sampleNumbers 
+2018-12-24 13:20:46 - |> List.map (fun x -> x*x) 
+2018-12-24 13:20:46 - let sumOfSelectedSquares = 
+2018-12-24 13:20:46 -     sampleNumbers
+2018-12-24 13:20:46 -     |> List.map (fun x -> x*x) 
+2018-12-24 13:20:46 -     |> List.filter (fun x -> x % 3 = 0)
+2018-12-24 13:20:46 -     |> List.sumBy (fun x -> x * x)
+2018-12-24 13:20:46 -     
+2018-12-24 13:20:46 - sumOfSelectedSquares    
+2018-12-24 13:20:47 - lowNumbers.[0 .. 50]
+2018-12-24 13:20:47 - let rnd = System.Random()
+2018-12-24 13:20:47 - let rec randomWalk x =
+2018-12-24 13:20:47 -     seq { yield x
+2018-12-24 13:20:47 -           yield! randomWalk (x + rnd.NextDouble() - 0.5) }
+2018-12-24 13:20:47 - let firstValuesOfRandomWalk = 
+2018-12-24 13:20:47 -     randomWalk 5.0 
+2018-12-24 13:20:47 -     |> Seq.truncate 20
+2018-12-24 13:20:47 -     |> Seq.toList
+2018-12-24 13:20:47 -     
+2018-12-24 13:20:47 - firstValuesOfRandomWalk
+2018-12-24 13:20:47 - let showCard (c: ContactCard) = 
+2018-12-24 13:20:47 -     c.Name + " Phone: " + c.Phone + (if not c.Verified then " (unverified)" else "")
+2018-12-24 13:20:47 -     
+2018-12-24 13:20:47 - showCard sampleCard
+2018-12-24 13:20:47 - The type 'ContactCard' is not defined.
+2018-12-24 13:20:47 - The field, constructor or member 'Phone' is not defined.
+2018-12-24 13:20:47 - The field, constructor or member 'Verified' is not defined.
+2018-12-24 13:20:47 - The value or constructor 'sampleCard' is not defined.
+2018-12-24 13:20:47 - open Microsoft.FSharp.Data.UnitSystems.SI.UnitNames
+2018-12-24 13:20:47 - let raceLength = 1600.0<meter>
+2018-12-24 13:20:47 - [<Measure>]
+2018-12-24 13:20:47 - type mile =
+2018-12-24 13:20:47 -     /// Conversion factor mile to meter: meter is defined in SI.UnitNames
+2018-12-24 13:20:47 -     static member asMeter = 1609.344<meter/mile>
+2018-12-24 13:20:47 - /// Distance expressed using imperial units
+2018-12-24 13:20:47 - let distanceToWalk  = 500.0<mile>          
+2018-12-24 13:20:47 - // Same distanceusing metric system
+2018-12-24 13:20:47 - let distanceToWalkInMeters = distanceToWalk * mile.asMeter   
+2018-12-24 13:20:47 - (raceLength, distanceToWalk, distanceToWalkInMeters)
+2018-12-24 13:20:47 - let oneBigArray = [| 0 .. 100000 |]
+2018-12-24 13:20:47 - // Do some CPU intensive computation
+2018-12-24 13:20:47 - let rec computeSomeFunction x = 
+2018-12-24 13:20:47 -     if x <= 2 then 1 
+2018-12-24 13:20:47 -     else computeSomeFunction (x - 1) + computeSomeFunction (x - 2)
+2018-12-24 13:20:47 -        
+2018-12-24 13:20:47 - /// Do a parallel map over a large input array
+2018-12-24 13:20:47 - let computeResults() = oneBigArray |> Array.Parallel.map (fun x -> computeSomeFunction (x % 24))
+2018-12-24 13:20:47 - computeResults()
+2018-12-24 13:20:48 - #load "Paket.fsx"
+2018-12-24 13:20:52 - Paket.Package
+2018-12-24 13:20:52 -   [ "MathNet.Numerics"
+2018-12-24 13:20:52 -     "MathNet.Numerics.FSharp"
+2018-12-24 13:20:52 -   ]
+2018-12-24 13:20:58 - type ContactCard = 
+2018-12-24 13:20:58 -     { Name     : string
+2018-12-24 13:20:58 -       Phone    : string
+2018-12-24 13:20:58 -       Verified : bool
+2018-12-24 13:20:58 -       ZipCode : string option}            
+2018-12-24 13:20:58 -       
+2018-12-24 13:20:58 - let sampleCard = { Name = "Alf" ; Phone = "(206) 555-0157" ; Verified = false; ZipCode=Some "90210" }
+2018-12-24 13:20:58 - sampleCard
+2018-12-24 13:20:58 - #load "Paket.Generated.Refs.fsx"
+2018-12-24 13:20:59 - open MathNet.Numerics.LinearAlgebra
+2018-12-24 13:20:59 - let m = matrix [[ 1.0; 2.0 ]
+2018-12-24 13:20:59 -                 [ 3.0; 4.0 ]]
+2018-12-24 13:20:59 - m.Inverse() 
+2018-12-24 13:20:59 - type MyType = { FirstName: string; LastName: string }
+2018-12-24 13:20:59 - let records = 
+2018-12-24 13:20:59 -     [|
+2018-12-24 13:20:59 -         { FirstName = "Walter"; LastName = "Harp" }
+2018-12-24 13:20:59 -         { FirstName = "Jeff"; LastName = "Smith" }
+2018-12-24 13:20:59 -         { FirstName = "Ben"; LastName = "Smith" }
+2018-12-24 13:20:59 -         { FirstName = ""; LastName = "Holly" }
+2018-12-24 13:20:59 -     |]
+2018-12-24 13:20:59 - records |> Util.Table
+2018-12-24 13:20:59 - Util.Table(records, [| "LastName" |])
+2018-12-24 13:21:00 - "f(x)" |> Util.Math 
+2018-12-24 13:21:00 - "\int_0^\infty e^{-x^2} dx \mathrm{\ in\ \LaTeX{}}"
+2018-12-24 13:21:00 -   |> Util.Math
+2018-12-24 13:21:00 - #load "XPlot.Plotly.Paket.fsx"
+2018-12-24 13:21:00 - #load "XPlot.Plotly.fsx"
+2018-12-24 13:21:00 - open XPlot.Plotly
+2018-12-24 13:21:04 - Heatmap(z = [[1; 20; 30]; [20; 1; 60]; [30; 60; 1]])
+2018-12-24 13:21:04 -     |> Chart.Plot
+2018-12-24 13:21:04 -     |> Chart.WithLayout (Layout(title = "Simple Heatmap"))
+2018-12-24 13:21:04 - ["giraffes", 20; "orangutans", 14; "monkeys", 23]
+2018-12-24 13:21:04 -     |> Chart.Bar
+2018-12-24 13:21:04 -     |> Chart.WithLayout (Layout(title = "Basic Bar Chart"))
+2018-12-24 13:21:04 -     |> Chart.WithHeight 300
+2018-12-24 13:21:04 -     |> Chart.WithWidth 400
+2018-12-24 13:21:04 - #load "Angara.Charting.Paket.fsx"
+2018-12-24 13:21:04 - #load "Angara.Charting.fsx"
+2018-12-24 13:21:14 - Microsoft (R) F# Interactive version 10.1.0 for F# 4.1
+2018-12-24 13:21:14 - Copyright (c) Microsoft Corporation. All Rights Reserved.
+2018-12-24 13:21:14 - For help type #help;;
+2018-12-24 13:21:14 - > val it :
+2018-12-24 13:21:14 -   ResizeArray<System.Type *
+2018-12-24 13:21:14 -               (obj ->
+2018-12-24 13:21:14 -                  seq<string *
+2018-12-24 13:21:14 -                      string> *
+2018-12-24 13:21:14 -                  string)>
+2018-12-24 13:21:14 - = seq []
+2018-12-24 13:21:14 - --> Added '/home/nbuser/IfSharp/bin' to library include path
+2018-12-24 13:21:14 - --> Referenced '/home/nbuser/IfSharp/bin/IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-12-24 13:21:14 - --> Referenced '/home/nbuser/IfSharp/bin/NetMQ.dll' (file may be locked by F# Interactive process)
+2018-12-24 13:21:23 - #load "Angara.Charting.Paket.fsx"
+2018-12-24 13:21:23 - #load "Angara.Charting.fsx"
+2018-12-24 13:21:35 - Microsoft (R) F# Interactive version 10.1.0 for F# 4.1
+2018-12-24 13:21:35 - Copyright (c) Microsoft Corporation. All Rights Reserved.
+2018-12-24 13:21:35 - For help type #help;;
+2018-12-24 13:21:35 - > val it :
+2018-12-24 13:21:35 -   ResizeArray<System.Type *
+2018-12-24 13:21:35 -               (obj ->
+2018-12-24 13:21:35 -                  seq<string *
+2018-12-24 13:21:35 -                      string> *
+2018-12-24 13:21:35 -                  string)>
+2018-12-24 13:21:35 - = seq []
+2018-12-24 13:21:35 - --> Added '/home/nbuser/IfSharp/bin' to library include path
+2018-12-24 13:21:35 - --> Referenced '/home/nbuser/IfSharp/bin/IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-12-24 13:21:35 - --> Referenced '/home/nbuser/IfSharp/bin/NetMQ.dll' (file may be locked by F# Interactive process)
